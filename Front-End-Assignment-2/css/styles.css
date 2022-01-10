@@ -1,0 +1,237 @@
+* {
+  font-family: sans-serif;
+  /* border: 1px solid red; */
+  padding: 0;
+  margin: 0;
+
+  --header-bg-color: #ccc;
+  --header-menu-link-bg-color: #ccf;
+  --header-menu-link-border-color: #aaf;
+  --header-item-padding: 15px;
+
+  --main-spacing-padding: 30px;
+  --main-bg-color: #f8f8f8;
+
+  --article-padding: 10px;
+  --article-item-padding: 5px;
+  --article-img-width: 75%;
+  --article-bg-color: #eee;
+  
+  --aside-padding: 10px;
+  --aside-list-indent: 20px;
+  --aside-list-item-padding: 5px;
+  --aside-bg-color: #eee;
+
+  --form-submit-color: #cfc;
+  --form-submit-border-color: #8f8;
+  --form-reset-color: #fcc;
+  --form-reset-border-color: #f88;
+  --form-bg-color: #eee;
+  --form-boder-color: #ccc;
+  --form-margin-padding: 10px;
+  --form-border-radius: 20px;
+  --form-item-border-radius: 5px;
+
+  --footer-bg-color: #ccc;
+  --footer-item-padding: 15px;
+
+  --optional-red: #f66;
+  --optional-green: #6f6;
+  --optional-blue: #66f;
+}
+
+body {
+  margin: 0 auto;
+  width: 1024px;
+}
+
+/*  Header styles */
+
+header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "logo menu link";
+  background-color: var(--header-bg-color);
+}
+
+header > h1 {
+  grid-area: logo;
+  display: inline;
+  padding: var(--header-item-padding);
+}
+
+header > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+header > ul > li {
+  grid-area: menu;
+  background-color: var(--header-menu-link-bg-color);
+}
+
+header > ul > li > a {
+  display: inline-block;
+  height: 100%;
+  margin: auto 0;
+  padding: 0 var(--header-item-padding);
+  vertical-align: middle;
+  text-decoration: none;
+  background-color: var(--header-menu-link-bg-color);
+  border-left: 1px solid var(--header-menu-link-border-color);
+}
+
+header > ul > li:last-child > a{
+  border-right: 1px solid var(--header-menu-link-border-color);
+}
+
+header a:after {
+  content: "";
+  display: inline-block;
+  width: 1px solid transparent;
+  height: 100%;
+  vertical-align: middle;
+}
+
+header > a {
+  grid-area: link;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: var(--header-item-padding);
+  background-color: var(--header-menu-link-bg-color);
+  border-left: 1px solid var(--header-menu-link-border-color);
+}
+
+/* Main styles */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: 
+    "headline headline side"
+    "subtext subtext side"
+    "article1 article2 side";
+  gap: var(--main-spacing-padding) var(--main-spacing-padding);
+  padding: var(--main-spacing-padding) var(--main-spacing-padding);
+  background-color: var(--main-bg-color);
+}
+
+main > h2 {
+  grid-area: headline;
+}
+
+main > p {
+  grid-area: subtext;
+}
+
+/* Article styles */
+
+article {
+  background-color: var(--article-bg-color);
+  padding: var(--article-padding);
+}
+
+article > * {
+  padding: var(--article-item-padding);
+}
+
+article:nth-child(1) {
+  grid-area: article1;
+}
+
+article:nth-child(2) {
+  grid-area: article2;
+}
+
+article > img {
+  width: var(--article-img-width);
+}
+
+/* Aside styles */
+
+aside {
+  grid-area: side;
+  padding: var(--aside-padding);
+  background-color: var(--aside-bg-color);
+}
+
+aside ul, ol {
+  margin-left: var(--aside-list-indent);
+}
+
+aside li, h3, h4  {
+  padding: var(--aside-list-item-padding);
+}
+
+/* Footer styles */
+
+footer {
+  text-align: center;
+  padding: var(--footer-item-padding);
+  background-color: var(--footer-bg-color);
+}
+
+/* form styles */
+
+main > div {
+  grid-area: headline;
+  margin: 0 auto;
+}
+
+main > div> h2 {
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+
+form {
+  border: 1px solid var(--form-boder-color);
+  border-radius: var(--form-border-radius);
+  padding: var(--form-margin-padding);
+  background-color: var(--form-bg-color);
+}
+
+form > * {
+  margin: var(--form-margin-padding);
+}
+
+form input, button {
+  border-radius: var(--form-item-border-radius);
+}
+
+form > input {
+  padding: var(--form-margin-padding);
+  border: 1px solid var(--form-boder-color);
+}
+
+form > button {
+  padding: var(--form-margin-padding);
+}
+
+form > button[type=reset] {
+  background-color: var(--form-reset-color);
+  border: 1px solid var(--form-reset-border-color);
+}
+
+form > button[type=submit] {
+  background-color: var(--form-submit-color);
+  border: 1px solid var(--form-submit-border-color);
+}
+
+/* Optional */
+
+article:first-of-type p:first-of-type {
+  font-weight: bold;
+  color: var(--optional-blue);
+}
+
+aside ul > li:nth-child(even) {
+  background-color: var(--optional-red);
+}
+
+aside ul > li:nth-child(odd) {
+  background-color: var(--optional-green);
+}
