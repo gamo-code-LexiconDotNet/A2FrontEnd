@@ -1,6 +1,5 @@
 * {
   font-family: sans-serif;
-  /* border: 1px solid red; */
   padding: 0;
   margin: 0;
 
@@ -35,9 +34,9 @@
   --footer-bg-color: #ccc;
   --footer-item-padding: 15px;
 
-  --optional-red: #f66;
-  --optional-green: #6f6;
-  --optional-blue: #66f;
+  --optional-red: #c33;
+  --optional-green: #3c3;
+  --optional-blue: #33c;
 }
 
 body {
@@ -59,7 +58,7 @@ header {
 header > h1 {
   grid-area: logo;
   display: inline;
-  padding: var(--header-item-padding);
+  padding: var(--header-item-padding) calc(var(--header-item-padding) * 2);
 }
 
 header > ul {
@@ -76,7 +75,7 @@ header > ul > li > a {
   display: inline-block;
   height: 100%;
   margin: auto 0;
-  padding: 0 var(--header-item-padding);
+  padding: 0 calc(var(--header-item-padding) * 2);
   vertical-align: middle;
   text-decoration: none;
   background-color: var(--header-menu-link-bg-color);
@@ -100,7 +99,7 @@ header > a {
   display: inline-block;
   vertical-align: middle;
   text-decoration: none;
-  padding: var(--header-item-padding);
+  padding: var(--header-item-padding) calc(var(--header-item-padding) * 2);
   background-color: var(--header-menu-link-bg-color);
   border-left: 1px solid var(--header-menu-link-border-color);
 }
@@ -115,8 +114,8 @@ main {
     "headline headline side"
     "subtext subtext side"
     "article1 article2 side";
-  gap: var(--main-spacing-padding) var(--main-spacing-padding);
-  padding: var(--main-spacing-padding) var(--main-spacing-padding);
+  gap: var(--main-spacing-padding);
+  padding: var(--main-spacing-padding);
   background-color: var(--main-bg-color);
 }
 
@@ -175,14 +174,14 @@ footer {
   background-color: var(--footer-bg-color);
 }
 
-/* form styles */
+/* Form styles */
 
 main > div {
   grid-area: headline;
   margin: 0 auto;
 }
 
-main > div> h2 {
+main > div > h2 {
   margin: 15px 0;
   text-transform: uppercase;
 }
@@ -229,9 +228,9 @@ article:first-of-type p:first-of-type {
 }
 
 aside ul > li:nth-child(even) {
-  background-color: var(--optional-red);
+  color: var(--optional-red);
 }
 
 aside ul > li:nth-child(odd) {
-  background-color: var(--optional-green);
+  color: var(--optional-green);
 }
